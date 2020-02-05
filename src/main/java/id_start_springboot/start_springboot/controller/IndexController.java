@@ -26,18 +26,17 @@ public class IndexController {
         // tableを作成
         List<List<String>> table = new ArrayList<List<String>>();
         ArrayList<String> th_row = new ArrayList<String>();
-        ArrayList<String> row = new ArrayList<String>();
         // thとなるヘッドの列作成
         for (int i = 0; i < max_column; i++) {
             th_row.add("th" + i);
         }
         // tdとなる列作成
         for (int i = 0; i < max_row; i++) {
+            ArrayList<String> row = new ArrayList<String>();
             for (int j = 0; j < max_column; j++) {
                 row.add("{r:" + i + " c:" + j + "}");
             }
-            table.add((ArrayList<String>) row.clone());
-            row.clear();
+            table.add(row);
         }
 
         model.addAttribute("h1", h1);
